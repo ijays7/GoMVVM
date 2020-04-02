@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 /.idea
+/.settings/
+/.idea/
+/.project
+/app/.project
+/app/.settings/org.eclipse.buildship.core.prefs
