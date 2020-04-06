@@ -52,4 +52,6 @@ dependencies {
 
     implementation Libraries.koinAndroid
     implementation Libraries.retrofit
+    implementation Libraries.gsonConverter
+    implementation Libraries.loggineInterceptor
 }

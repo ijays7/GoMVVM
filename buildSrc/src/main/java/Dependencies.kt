@@ -22,4 +22,6 @@ object Libraries {
     const val koinFragment = "org.koin:koin-androidx-fragment:${Versions.koinFragment}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val loggineInterceptor = "com.squareup.okhttp3:logging-interceptor:4.0.0"
 }

@@ -1,4 +1,4 @@
-package com.ijays.gomvvm.model
+package com.ijays.gomvvm.model.base
 
 /**
  * Created by ijays on 2020/4/2.
