@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.ijays.gomvvm.ui.viewmodel.ArticleListViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         if (articleListViewModel != null) {
             articleListViewModel.getArticleLivaData().observe(this, Observer {
                 Log.e("SONGJIE", "RESULT==>$it")
+                tvResult.text = it.toString()
             })
         }
     }
