@@ -1,5 +1,6 @@
 package com.ijays.gomvvm.di
 
+import com.ijays.gomvvm.model.api.ApiManager
 import com.ijays.gomvvm.repo.ArticleListRepository
 import org.koin.dsl.module
 
@@ -9,6 +10,6 @@ import org.koin.dsl.module
 val repositoryModule = module {
 
     single {
-        ArticleListRepository()
+        ArticleListRepository(ApiManager)
     }
 }

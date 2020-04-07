@@ -50,7 +50,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation Libraries.koinAndroid
+    implementation Androidx.liveDataKtx
+    implementation(Androidx.lifecycleExtension)
+
+    implementation Libraries.coroutines
+    implementation Libraries.coroutineAndroid
+
+    implementation Libraries.koinViewModel
     implementation Libraries.retrofit
     implementation Libraries.gsonConverter
     implementation Libraries.loggineInterceptor

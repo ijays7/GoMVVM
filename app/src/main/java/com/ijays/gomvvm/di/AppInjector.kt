@@ -12,7 +12,7 @@ import org.koin.core.context.startKoin
  */
 object AppInjector {
 
-    private val declaredModules = listOf(repositoryModule)
+    private val declaredModules = listOf(repositoryModule, viewModelModule)
 
     /**
      * Initialize Koin
