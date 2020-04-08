@@ -2,6 +2,7 @@ package com.ijays.gomvvm.repo
 
 import com.ijays.gomvvm.model.ArticleListModel
 import com.ijays.gomvvm.model.api.ApiManager
+import com.ijays.gomvvm.model.base.GeneralErrorHandlerImpl
 import com.ijays.gomvvm.model.base.ViewState
 import com.ijays.gomvvm.model.base.WanResponse
 import kotlinx.coroutines.Dispatchers
@@ -21,7 +22,7 @@ class ArticleListRepository(private val apiManager: ApiManager) {
 
             emit(ViewState.success(articleResponse))
         }.catch {
-            emit(ViewState.error(it.message.orEmpty()))
+            emit(ViewState.error(GeneralErrorHandlerImpl().getError(throwable = it)))
         }.flowOn(Dispatchers.IO)
 
     }

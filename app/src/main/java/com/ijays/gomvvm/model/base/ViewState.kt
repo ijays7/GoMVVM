@@ -14,7 +14,7 @@ sealed class ViewState<ResultType> {
     /**
      * Describe error state of the UI
      */
-    data class Error<ResultType>(val message: String = "") : ViewState<ResultType>()
+    data class Error<ResultType>(val errorEntity: ErrorEntity) : ViewState<ResultType>()
 
     companion object {
         /**
@@ -29,7 +29,7 @@ sealed class ViewState<ResultType> {
         /**
          * Creates [ViewState] object with [Error] state and [message]
          */
-        fun <ResultType> error(message: String): ViewState<ResultType> = Error(message)
+        fun <ResultType> error(errorEntity: ErrorEntity): ViewState<ResultType> = Error(errorEntity)
     }
 
 }
