@@ -16,10 +16,12 @@ object Versions {
 
     const val ktx = "1.2.0"
     const val liveDataKtx = "2.2.0"
+    const val appCompat = "1.2.0-alpha01"
 }
 
 object Androidx {
     //    const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
+    const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
     const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.liveDataKtx}"
 }
