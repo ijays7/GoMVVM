@@ -8,6 +8,6 @@ import org.koin.dsl.module
  */
 val articleListServiceModule = module {
     single {
-        ApiManager.service
+        ApiManager
     }
 }

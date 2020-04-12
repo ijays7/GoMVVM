@@ -1,10 +1,14 @@
+final roomSchemaDir = "$projectDir/roomSchemas"
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.didi.dokit'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId ApplicationId.id
@@ -34,7 +38,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
 
+kapt {
+    mapDiagnosticLocations = true
+    arguments {
+        arg("room.schemaLocation", roomSchemaDir)
+    }
 }
 
 dependencies {
@@ -60,4 +70,14 @@ dependencies {
     implementation Libraries.retrofit
     implementation Libraries.gsonConverter
     implementation Libraries.loggineInterceptor
+
+    // room
+    implementation Androidx.roomRuntime
+    kapt Androidx.roomAnnotationProcessor
+    implementation Androidx.roomKtx
+    testImplementation Androidx.roomTesting
+
+    // doraemonKit
+    debugImplementation "com.didichuxing.doraemonkit:doraemonkit:${Versions.doraemonKit}"
+    releaseImplementation "com.didichuxing.doraemonkit:doraemonkit-no-op:${Versions.doraemonKit}"
 }

@@ -1,6 +1,7 @@
 package com.ijays.gomvvm
 
 import android.app.Application
+import com.didichuxing.doraemonkit.DoraemonKit
 import com.ijays.gomvvm.di.AppInjector
 
 /**
@@ -11,6 +12,8 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // Init DoraemonKit
+        DoraemonKit.install(this)
         // Init DI
         AppInjector.init(this)
 

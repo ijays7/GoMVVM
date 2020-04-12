@@ -1,11 +1,15 @@
 package com.ijays.gomvvm.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.io.Serializable
 
 /**
  * Created by ijays on 2020/4/5.
  */
+@Entity(tableName = "t_article_detail")
 data class ArticleModel(
+    @PrimaryKey
     val id: Int,
     val originId: Int,
     val title: String,
@@ -34,6 +38,6 @@ data class ArticleModel(
     val selfVisible: Int,
     val shareDate: Long,
     val shareUser: String,
-    val tags: Any,
+//    val tags: Any,
     val userId: Int
 ) : Serializable

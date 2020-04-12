@@ -17,6 +17,10 @@ object Versions {
     const val ktx = "1.2.0"
     const val liveDataKtx = "2.2.0"
     const val appCompat = "1.2.0-alpha01"
+
+    const val room = "2.2.3"
+
+    const val doraemonKit = "3.1.2"
 }
 
 object Androidx {
@@ -24,6 +28,13 @@ object Androidx {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
     const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.liveDataKtx}"
+
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
+    const val roomAnnotationProcessor = "androidx.room:room-compiler:${Versions.room}"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val roomTesting = "androidx.room:room-testing:${Versions.room}"
+
 }
 
 object Libraries {
