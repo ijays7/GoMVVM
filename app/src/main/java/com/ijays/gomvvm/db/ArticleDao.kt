@@ -2,6 +2,7 @@ package com.ijays.gomvvm.db
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.ijays.gomvvm.model.ArticleModel
 
@@ -11,7 +12,7 @@ import com.ijays.gomvvm.model.ArticleModel
 @Dao
 interface ArticleDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertArticles(articles: List<ArticleModel>): List<Long>
 
     @Query("SELECT * FROM t_article_detail")
