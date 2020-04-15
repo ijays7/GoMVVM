@@ -32,16 +32,29 @@ class MainActivity : AppCompatActivity() {
         )
         articleList.adapter = adapter
 
-        articleListViewModel.getArticleLivaData().observeNotNull(this) { state ->
-            when (state) {
-                is ViewState.Success -> {
-                    adapter.replaceItems(state.data.data.datas)
-                    progressbar.isVisible = false
+        articleListViewModel.apply {
+            getBannerListLiveData().observeNotNull(this@MainActivity) { state ->
+                when (state) {
+                    is ViewState.Success -> {
+                        val bannerList=state.data.data
+                        bannerList.forEach {
+                            Log.e("SONGJIE","state==>$it")
+                        }
+                    }
                 }
-                is ViewState.Loading -> progressbar.isVisible = true
-                is ViewState.Error -> {
-                    progressbar.isVisible = false
-                    toast("Something went wrong…")
+            }
+
+            getArticleLivaData().observeNotNull(this@MainActivity) { state ->
+                when (state) {
+                    is ViewState.Success -> {
+                        adapter.replaceItems(state.data.data.datas)
+                        progressbar.isVisible = false
+                    }
+                    is ViewState.Loading -> progressbar.isVisible = true
+                    is ViewState.Error -> {
+                        progressbar.isVisible = false
+                        toast("Something went wrong…")
+                    }
                 }
             }
         }

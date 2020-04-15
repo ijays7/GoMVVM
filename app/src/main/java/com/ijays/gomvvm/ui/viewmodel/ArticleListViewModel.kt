@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.ijays.gomvvm.model.ArticleListModel
+import com.ijays.gomvvm.model.BannerModel
 import com.ijays.gomvvm.model.base.ViewState
 import com.ijays.gomvvm.model.base.WanResponse
 import com.ijays.gomvvm.repo.ArticleListRepository
@@ -16,6 +17,10 @@ class ArticleListViewModel(articleListRepository: ArticleListRepository) : ViewM
     private val articleListLD: LiveData<ViewState<WanResponse<ArticleListModel>>> =
         articleListRepository.getArticleList().asLiveData()
 
+    private val bannerListLD: LiveData<ViewState<WanResponse<List<BannerModel>>>> =
+        articleListRepository.getBannerList().asLiveData()
 
     fun getArticleLivaData() = articleListLD
+
+    fun getBannerListLiveData() = bannerListLD
 }
