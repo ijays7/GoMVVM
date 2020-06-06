@@ -1,6 +1,7 @@
 package com.ijays.gomvvm.ui.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.ijays.gomvvm.model.ArticleListModel

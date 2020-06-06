@@ -41,6 +41,7 @@ android {
 }
 
 kapt {
+    correctErrorTypes = true
     mapDiagnosticLocations = true
     arguments {
         arg("room.schemaLocation", roomSchemaDir)
@@ -76,6 +77,10 @@ dependencies {
     kapt Androidx.roomAnnotationProcessor
     implementation Androidx.roomKtx
     testImplementation Androidx.roomTesting
+
+    implementation Libraries.epoxy
+    // Add the annotation processor if you are using Epoxy's annotations (recommended)
+    kapt Libraries.epoxyAnnotateProcessor
 
     // doraemonKit
     debugImplementation "com.didichuxing.doraemonkit:doraemonkit:${Versions.doraemonKit}"
