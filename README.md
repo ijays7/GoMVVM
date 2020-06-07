@@ -15,3 +15,7 @@ GoMVVM is a simple app which uses [WanAndroid](https://www.wanandroid.com/blog/s
 
 ### Architechture
 
+- [Guide to app architure](https://developer.android.com/jetpack/docs/guide)
+
+![Google's architure component](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
+
