@@ -11,7 +11,7 @@ GoMVVM is a simple app which uses [WanAndroid](https://www.wanandroid.com/blog/s
 - [Android Architechture Component](https://developer.android.com/jetpack)
 - [Koin](https://github.com/InsertKoinIO/koin) for Dependency Intejection
 - [Retrofit](https://github.com/square/retrofit) for HTTP Client
-- The [epoxy branch](https://github.com/ijays7/GoMVVM/tree/epoxy) trying to use https://github.com/airbnb/epoxy[](https://github.com/airbnb/epoxy) to display complex screens  in a recyclerView
+- The [epoxy branch](https://github.com/ijays7/GoMVVM/tree/epoxy) trying to use [epoxy](https://github.com/airbnb/epoxy) to display complex screens  in a recyclerView
 
 ### Architechture
 
