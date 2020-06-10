@@ -2,6 +2,7 @@ package com.ijays.gomvvm.repo
 
 import com.ijays.gomvvm.db.ArticleDao
 import com.ijays.gomvvm.model.ArticleListModel
+import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.model.BannerModel
 import com.ijays.gomvvm.model.api.ApiManager
 import com.ijays.gomvvm.model.base.GeneralErrorHandlerImpl
@@ -20,15 +21,19 @@ class ArticleListRepository(
     private val articleDao: ArticleDao,
     private val apiManager: ApiManager
 ) {
-    fun getArticleList(): Flow<ViewState<WanResponse<ArticleListModel>>> {
+    fun getArticleList(): Flow<ViewState<List<ArticleModel>>> {
         return flow {
             val articleResponse = apiManager.service.getArticleList(0)
+            val topArticleList = apiManager.service.getTopArticle()
+
+            val resultList = topArticleList.data.toMutableList()
+            resultList.addAll(articleResponse.data.datas)
 
             // Save articles to database
-            articleDao.insertArticles(articleResponse.data.datas)
+            articleDao.insertArticles(resultList)
 
             //
-            emit(ViewState.success(articleResponse))
+            emit(ViewState.success(resultList.toList()))
 
         }.catch {
             emit(ViewState.error(GeneralErrorHandlerImpl().getError(throwable = it)))

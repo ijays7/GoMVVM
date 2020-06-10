@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "144b0f17b6ca17f3e10ea28ca1e8f4e4",
+    "identityHash": "0adf41ca7e4e7fc0a1cb2f33925167de",
     "entities": [
       {
         "tableName": "t_article_detail",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originId` INTEGER NOT NULL, `title` TEXT NOT NULL, `chapterId` INTEGER NOT NULL, `chapterName` TEXT NOT NULL, `envelopePic` TEXT NOT NULL, `link` TEXT NOT NULL, `author` TEXT NOT NULL, `origin` TEXT NOT NULL, `publishTime` INTEGER NOT NULL, `zan` INTEGER NOT NULL, `desc` TEXT NOT NULL, `visible` INTEGER NOT NULL, `niceDate` TEXT NOT NULL, `niceShareDate` TEXT NOT NULL, `courseId` INTEGER NOT NULL, `collect` INTEGER NOT NULL, `apkLink` TEXT NOT NULL, `projectLink` TEXT NOT NULL, `superChapterId` INTEGER NOT NULL, `superChapterName` TEXT, `type` INTEGER NOT NULL, `fresh` INTEGER NOT NULL, `audit` INTEGER NOT NULL, `prefix` TEXT NOT NULL, `selfVisible` INTEGER NOT NULL, `shareDate` INTEGER NOT NULL, `shareUser` TEXT NOT NULL, `userId` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originId` INTEGER NOT NULL, `title` TEXT NOT NULL, `chapterId` INTEGER NOT NULL, `chapterName` TEXT NOT NULL, `envelopePic` TEXT NOT NULL, `link` TEXT NOT NULL, `author` TEXT, `origin` TEXT NOT NULL, `publishTime` INTEGER NOT NULL, `zan` INTEGER NOT NULL, `desc` TEXT NOT NULL, `visible` INTEGER NOT NULL, `niceDate` TEXT NOT NULL, `niceShareDate` TEXT NOT NULL, `courseId` INTEGER NOT NULL, `collect` INTEGER NOT NULL, `apkLink` TEXT NOT NULL, `projectLink` TEXT NOT NULL, `superChapterId` INTEGER NOT NULL, `superChapterName` TEXT, `type` INTEGER NOT NULL, `fresh` INTEGER NOT NULL, `audit` INTEGER NOT NULL, `prefix` TEXT NOT NULL, `selfVisible` INTEGER NOT NULL, `shareDate` INTEGER NOT NULL, `shareUser` TEXT NOT NULL, `userId` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -54,7 +54,7 @@
             "fieldPath": "author",
             "columnName": "author",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "origin",
@@ -196,7 +196,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '144b0f17b6ca17f3e10ea28ca1e8f4e4')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0adf41ca7e4e7fc0a1cb2f33925167de')"
     ]
   }
 }

@@ -17,7 +17,7 @@ data class ArticleModel(
     val chapterName: String,
     val envelopePic: String,
     val link: String,
-    val author: String,
+    val author: String?,
     val origin: String,
     val publishTime: Long,
     val zan: Int,

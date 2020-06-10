@@ -36,10 +36,12 @@ class MainActivity : AppCompatActivity() {
                 when (state) {
                     is ViewState.Success -> {
                         articleList.withModels {
-                            state.data.data.datas.forEach {
+                            state.data.forEach {
                                 articleListItemView {
                                     id(it.id)
                                     title(it.title)
+                                    authorName(if (it.author.isNullOrEmpty()) it.shareUser else it.author)
+                                    topArticle(it.type == 1)
                                 }
                             }
                         }
