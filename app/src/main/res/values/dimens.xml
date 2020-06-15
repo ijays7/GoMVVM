@@ -6,5 +6,6 @@
     <dimen name="normal_top_margin">12dp</dimen>
 
     <dimen name="title_size">16sp</dimen>
+    <dimen name="title_size_middle">14sp</dimen>
     <dimen name="text_small">12sp</dimen>
 </resources>

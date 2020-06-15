@@ -37,6 +37,5 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ArticleListVH
         fun bind(articleModel: ArticleModel) = with(itemView) {
             tvTitle.text = articleModel.title
         }
-
     }
 }

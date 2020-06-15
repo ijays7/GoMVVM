@@ -42,6 +42,12 @@ class MainActivity : AppCompatActivity() {
                                     title(it.title)
                                     authorName(if (it.author.isNullOrEmpty()) it.shareUser else it.author)
                                     topArticle(it.type == 1)
+                                    describe(it.desc)
+                                    channel("${it.superChapterName}·${it.chapterName}")
+                                    time(it.niceDate)
+                                    itemClickListener { _ ->
+                                        toast("OMG, wait a second...")
+                                    }
                                 }
                             }
                         }
