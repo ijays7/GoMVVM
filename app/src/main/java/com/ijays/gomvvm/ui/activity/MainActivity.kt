@@ -1,9 +1,10 @@
-package com.ijays.gomvvm
+package com.ijays.gomvvm.ui.activity
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.ijays.gomvvm.R
 import com.ijays.gomvvm.adapter.item.articleListItemView
 import com.ijays.gomvvm.model.base.ViewState
 import com.ijays.gomvvm.ui.viewmodel.ArticleListViewModel

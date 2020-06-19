@@ -17,6 +17,7 @@ object Versions {
     const val ktx = "1.2.0"
     const val liveDataKtx = "2.2.0"
     const val appCompat = "1.2.0-alpha01"
+    const val constraintLayout="2.0.0-beta4"
 
     const val room = "2.2.3"
 
@@ -30,6 +31,7 @@ object Androidx {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
     const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.liveDataKtx}"
+    const val constraintLayout="androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomAnnotationProcessor = "androidx.room:room-compiler:${Versions.room}"
