@@ -13,6 +13,9 @@ import com.ijays.gomvvm.utils.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
+/**
+ * Main page
+ */
 class MainActivity : AppCompatActivity() {
 
     private val articleListViewModel: ArticleListViewModel by viewModel()

@@ -20,6 +20,9 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         private const val databaseName = "app-db"
 
+        /**
+         * build default room instance
+         */
         fun buildDefault(context: Context) = Room.databaseBuilder(
             context, AppDatabase::class.java,
             databaseName

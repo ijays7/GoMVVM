@@ -23,7 +23,13 @@ class ArticleListViewModel(articleListRepository: ArticleListRepository) : ViewM
     private val bannerListLD: LiveData<ViewState<WanResponse<List<BannerModel>>>> =
         articleListRepository.getBannerList().asLiveData()
 
+    /**
+     * get liveData for article list
+     */
     fun getArticleLivaData() = articleListLD
 
+    /**
+     * get liveData for banner list
+     */
     fun getBannerListLiveData() = bannerListLD
 }
