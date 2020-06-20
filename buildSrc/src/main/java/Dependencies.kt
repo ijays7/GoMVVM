@@ -20,7 +20,7 @@ object Versions {
     const val ktx = "1.2.0"
     const val liveDataKtx = "2.2.0"
     const val appCompat = "1.2.0-alpha01"
-    const val constraintLayout="2.0.0-beta4"
+    const val constraintLayout="2.0.0-beta6"
 
     const val room = "2.2.3"
 
