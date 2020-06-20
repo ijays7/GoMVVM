@@ -26,14 +26,21 @@ class ArticleListAdapter : RecyclerView.Adapter<ArticleListAdapter.ArticleListVH
     override fun onBindViewHolder(holder: ArticleListVH, position: Int) =
         holder.bind(dataList[position])
 
+    /**
+     * update items
+     */
     fun replaceItems(items: List<ArticleModel>) {
         dataList = items
         notifyItemRangeChanged(0, items.size)
     }
 
-
+    /**
+     * viewHolder of article list
+     */
     class ArticleListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+        /**
+         * bind view
+         */
         fun bind(articleModel: ArticleModel) = with(itemView) {
             tvTitle.text = articleModel.title
         }

@@ -21,6 +21,10 @@ class ArticleListRepository(
     private val articleDao: ArticleDao,
     private val apiManager: ApiManager
 ) {
+    /**
+     * get article list
+     * from network and database
+     */
     fun getArticleList(): Flow<ViewState<List<ArticleModel>>> {
         return flow {
             val articleResponse = apiManager.service.getArticleList(0)
@@ -40,6 +44,9 @@ class ArticleListRepository(
         }.flowOn(Dispatchers.IO)
     }
 
+    /**
+     * get banner list
+     */
     fun getBannerList(): Flow<ViewState<WanResponse<List<BannerModel>>>> {
         return flow {
             emit(ViewState.success(apiManager.service.getBanner()))

@@ -11,10 +11,15 @@ import com.ijays.gomvvm.model.ArticleModel
  */
 @Dao
 interface ArticleDao {
-
+    /**
+     * Insert articles to DB
+     */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertArticles(articles: List<ArticleModel>): List<Long>
 
+    /**
+     * get all articles from DB
+     */
     @Query("SELECT * FROM t_article_detail")
     suspend fun getArticleList(): List<ArticleModel>
 }

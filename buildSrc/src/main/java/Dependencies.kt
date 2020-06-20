@@ -5,6 +5,9 @@ object ApplicationId {
     const val id = "com.ijays.gomvvm"
 }
 
+/**
+ * Versions of libraries
+ */
 object Versions {
     const val kotlin = "1.3.70"
     const val coroutines = "1.3.5"
@@ -26,6 +29,9 @@ object Versions {
     const val doraemonKit = "3.1.2"
 }
 
+/**
+ * Android libs we import
+ */
 object Androidx {
     //    const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
@@ -42,6 +48,9 @@ object Androidx {
 
 }
 
+/**
+ * Third party libs we import
+ */
 object Libraries {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
