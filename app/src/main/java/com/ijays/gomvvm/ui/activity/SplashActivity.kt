@@ -38,5 +38,4 @@ class SplashActivity : AppCompatActivity() {
         super.onResume()
         motionLayout.startLayoutAnimation()
     }
-
 }
