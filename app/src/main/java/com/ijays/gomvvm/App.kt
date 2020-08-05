@@ -2,11 +2,12 @@ package com.ijays.gomvvm
 
 import android.app.Application
 import com.didichuxing.doraemonkit.DoraemonKit
-import com.ijays.gomvvm.di.AppInjector
+import dagger.hilt.android.HiltAndroidApp
 
 /**
  * Created by ijays on 2020/4/2.
  */
+@HiltAndroidApp
 class App : Application() {
 
     override fun onCreate() {
@@ -14,8 +15,5 @@ class App : Application() {
 
         // Init DoraemonKit
         DoraemonKit.install(this)
-        // Init DI
-        AppInjector.init(this)
-
     }
 }

@@ -18,13 +18,17 @@ object Versions {
     const val retrofit = "2.8.1"
 
     const val ktx = "1.2.0"
+    const val activityKtx = "1.2.0-alpha06"
     const val liveDataKtx = "2.2.0"
     const val appCompat = "1.2.0-alpha01"
-    const val constraintLayout="2.0.0-rc1"
+    const val constraintLayout = "2.0.0-rc1"
 
     const val room = "2.2.3"
 
     const val epoxy = "4.0.0-beta4"
+
+    const val hilt = "2.28.3-alpha"
+    const val hiltViewModelVersion = "1.0.0-alpha02"
 
     const val doraemonKit = "3.1.2"
 }
@@ -35,9 +39,11 @@ object Versions {
 object Androidx {
     //    const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
+    const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
     const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.liveDataKtx}"
-    const val constraintLayout="androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomAnnotationProcessor = "androidx.room:room-compiler:${Versions.room}"
@@ -46,6 +52,12 @@ object Androidx {
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     const val roomTesting = "androidx.room:room-testing:${Versions.room}"
 
+
+    const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hilt}"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
+    const val hiltViewModel =
+        "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModelVersion}"
+    const val hiltViewModelCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltViewModelVersion}"
 }
 
 /**

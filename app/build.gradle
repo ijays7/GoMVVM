@@ -4,6 +4,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'com.didi.dokit'
 
 android {
@@ -53,13 +54,12 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation Androidx.appCompat
+    implementation Androidx.activityKtx
     implementation Androidx.liveDataKtx
     implementation Androidx.lifecycleExtension
     implementation Androidx.constraintLayout
@@ -68,10 +68,15 @@ dependencies {
     implementation Libraries.coroutines
     implementation Libraries.coroutineAndroid
 
-    implementation Libraries.koinViewModel
     implementation Libraries.retrofit
     implementation Libraries.gsonConverter
     implementation Libraries.loggineInterceptor
+
+    // hilt DI
+    implementation Androidx.hiltAndroid
+    implementation Androidx.hiltViewModel
+    kapt Androidx.hiltCompiler
+    kapt Androidx.hiltViewModelCompiler
 
     // room
     implementation Androidx.roomRuntime
