@@ -72,6 +72,9 @@ dependencies {
     implementation Libraries.gsonConverter
     implementation Libraries.loggineInterceptor
 
+    // paging3
+    implementation Androidx.paging3
+
     // hilt DI
     implementation Androidx.hiltAndroid
     implementation Androidx.hiltViewModel
@@ -83,10 +86,6 @@ dependencies {
     kapt Androidx.roomAnnotationProcessor
     implementation Androidx.roomKtx
     testImplementation Androidx.roomTesting
-
-    implementation Libraries.epoxy
-    // Add the annotation processor if you are using Epoxy's annotations (recommended)
-    kapt Libraries.epoxyAnnotateProcessor
 
     // doraemonKit
     debugImplementation "com.didichuxing.doraemonkit:doraemonkit:${Versions.doraemonKit}"

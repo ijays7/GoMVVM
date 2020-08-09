@@ -21,7 +21,7 @@ data class ArticleModel(
     val origin: String,
     val publishTime: Long,
     val zan: Int,
-    val desc: String,
+    val desc: String?,
     val visible: Int,
     val niceDate: String,
     val niceShareDate: String,

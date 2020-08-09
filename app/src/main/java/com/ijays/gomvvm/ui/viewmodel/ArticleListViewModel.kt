@@ -14,7 +14,8 @@ import com.ijays.gomvvm.repo.IArticleListRepository
  * ViewModel for article List
  * Created by ijays on 2020/4/4.
  */
-class ArticleListViewModel @ViewModelInject constructor(articleListRepository: IArticleListRepository) : ViewModel() {
+class ArticleListViewModel @ViewModelInject constructor(articleListRepository: IArticleListRepository)
+    : ViewModel() {
 
     private val articleListLD: LiveData<ViewState<List<ArticleModel>>> =
         articleListRepository.getArticleList().asLiveData()

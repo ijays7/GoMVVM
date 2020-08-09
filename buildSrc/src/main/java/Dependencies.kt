@@ -27,6 +27,7 @@ object Versions {
 
     const val epoxy = "4.0.0-beta4"
 
+    const val paging3Version = "3.0.0-alpha04"
     const val hilt = "2.28.3-alpha"
     const val hiltViewModelVersion = "1.0.0-alpha02"
 
@@ -52,7 +53,10 @@ object Androidx {
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
     const val roomTesting = "androidx.room:room-testing:${Versions.room}"
 
+    // paging3
+    const val paging3 = "androidx.paging:paging-runtime:${Versions.paging3Version}"
 
+    // hilt
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
     const val hiltViewModel =
