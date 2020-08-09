@@ -1,17 +1,20 @@
 package com.ijays.gomvvm.ui.adapter
 
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.ui.vh.ArticleListVH
 
 /**
+ * The [PagingDataAdapter] gets notified whenever the [PagingData] content is loaded and then it
+ * signals RecyclerView to update.
+ *
  * Created by ijays on 2020/8/7.
  */
 class ArticleListAdapter :
-    ListAdapter<ArticleModel, RecyclerView.ViewHolder>(REPO_CREATOR) {
+    PagingDataAdapter<ArticleModel, RecyclerView.ViewHolder>(REPO_CREATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ArticleListVH.create(parent)

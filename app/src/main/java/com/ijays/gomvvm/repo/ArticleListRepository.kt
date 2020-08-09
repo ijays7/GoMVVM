@@ -1,5 +1,8 @@
 package com.ijays.gomvvm.repo
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
 import com.ijays.gomvvm.db.ArticleDao
 import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.model.BannerModel
@@ -7,6 +10,7 @@ import com.ijays.gomvvm.model.api.ApiManager
 import com.ijays.gomvvm.model.base.GeneralErrorHandlerImpl
 import com.ijays.gomvvm.model.base.ViewState
 import com.ijays.gomvvm.model.base.WanResponse
+import com.ijays.gomvvm.repo.data.ArticlePagingSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -23,9 +27,11 @@ import javax.inject.Singleton
  * Created by ijays on 2020/4/4.
  */
 
+private const val ARTICLE_LIST_PAGE_SIZE = 20
+
 interface IArticleListRepository {
 
-    fun getArticleList(): Flow<ViewState<List<ArticleModel>>>
+    fun getArticleList(): Flow<PagingData<ArticleModel>>
 
     fun getBannerList(): Flow<ViewState<WanResponse<List<BannerModel>>>>
 }
@@ -35,23 +41,33 @@ class DefaultArticleListRepository @Inject constructor(
     private val articleDao: ArticleDao,
     private val apiManager: ApiManager
 ) : IArticleListRepository {
-    override fun getArticleList(): Flow<ViewState<List<ArticleModel>>> {
-        return flow {
-            val articleResponse = apiManager.service.getArticleList(0)
-            val topArticleList = apiManager.service.getTopArticle()
+    override fun getArticleList(): Flow<PagingData<ArticleModel>> {
+//        return flow {
+//            val articleResponse = apiManager.service.getArticleList(0)
+//            val topArticleList = apiManager.service.getTopArticle()
+//
+//            val resultList = topArticleList.data.toMutableList()
+//            resultList.addAll(articleResponse.data.datas)
+//
+//            // Save articles to database
+//            articleDao.insertArticles(resultList)
+//
+//            //
+//            emit(ViewState.success(resultList.toList()))
+//
+//        }.catch {
+//            emit(ViewState.error(GeneralErrorHandlerImpl().getError(throwable = it)))
+//        }.flowOn(Dispatchers.IO)
 
-            val resultList = topArticleList.data.toMutableList()
-            resultList.addAll(articleResponse.data.datas)
+        return Pager(
+            config = PagingConfig(
+                pageSize = ARTICLE_LIST_PAGE_SIZE,
+                enablePlaceholders = false
+            ), pagingSourceFactory = {
+                ArticlePagingSource(apiManager)
+            }
+        ).flow
 
-            // Save articles to database
-            articleDao.insertArticles(resultList)
-
-            //
-            emit(ViewState.success(resultList.toList()))
-
-        }.catch {
-            emit(ViewState.error(GeneralErrorHandlerImpl().getError(throwable = it)))
-        }.flowOn(Dispatchers.IO)
     }
 
     override fun getBannerList(): Flow<ViewState<WanResponse<List<BannerModel>>>> {

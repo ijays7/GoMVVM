@@ -22,23 +22,6 @@ class ArticleListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
      */
     fun bind(articleModel: ArticleModel) {
         articleModel.let {
-//            articleList.withModels {
-//                state.data.forEach {
-//                    articleListItemView {
-//                        id(it.id)
-//                        title(it.title)
-//                        authorName(if (it.author.isNullOrEmpty()) it.shareUser else it.author)
-//                        topArticle(it.type == 1)
-//                        describe(it.desc)
-//                        channel("${it.superChapterName}·${it.chapterName}")
-//                        time(it.niceDate)
-//                        itemClickListener { _ ->
-//                            toast("OMG, wait a second...")
-//                        }
-//                    }
-//                }
-//            }
-//
             itemView.tvTitle.text = it.title
             itemView.tvChannel.text = "${it.superChapterName}·${it.chapterName}"
             itemView.tvName.text = if (it.author.isNullOrEmpty()) it.shareUser else it.author
