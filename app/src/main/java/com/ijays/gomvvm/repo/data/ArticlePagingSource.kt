@@ -1,13 +1,11 @@
 package com.ijays.gomvvm.repo.data
 
-import android.util.Log
 import androidx.paging.PagingSource
 import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.model.api.ApiManager
+import com.ijays.gomvvm.model.base.WanResponse
 import retrofit2.HttpException
 import java.io.IOException
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Created by ijays on 2020/8/9.
@@ -31,11 +29,32 @@ class ArticlePagingSource(private val apiManager: ApiManager) :
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticleModel> {
         val position = params.key ?: ARTICLE_STARTING_PAGE_INDEX
         return try {
-            val result = apiManager.service.getArticleList(position)
+            var topArticleResult: WanResponse<List<ArticleModel>>? = null
+            val isFirstLoadOrRefresh = position == ARTICLE_STARTING_PAGE_INDEX
+
+            if (isFirstLoadOrRefresh) {
+                // Add top article
+                topArticleResult = apiManager.service.getTopArticle()
+            }
+
+            val articleResult = apiManager.service.getArticleList(position)
+
+            val result = if (isFirstLoadOrRefresh) {
+                if (topArticleResult != null) {
+                    val realResult = mutableListOf<ArticleModel>()
+                    realResult.addAll(topArticleResult.data)
+                    realResult.addAll(articleResult.data.datas)
+                    realResult
+                } else {
+                    articleResult.data.datas
+                }
+            } else {
+                articleResult.data.datas
+            }
             LoadResult.Page(
-                data = result.data.datas,
+                data = result,
                 prevKey = if (position == ARTICLE_STARTING_PAGE_INDEX) null else position - 1,
-                nextKey = if (result.data.datas.isEmpty()) null else position + 1
+                nextKey = if (articleResult.data.datas.isEmpty()) null else position + 1
             )
 
         } catch (exception: IOException) {

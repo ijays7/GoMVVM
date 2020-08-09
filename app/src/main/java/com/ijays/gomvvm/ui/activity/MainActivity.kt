@@ -3,7 +3,9 @@ package com.ijays.gomvvm.ui.activity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.gomvvm.R
@@ -34,7 +36,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        initAdapter()
+        initView()
 
         initData()
 
@@ -49,26 +51,28 @@ class MainActivity : BaseActivity() {
                     }
                 }
             }
-
-//            getArticleLivaData().observeNotNull(this@MainActivity) { state ->
-//                when (state) {
-//                    is ViewState.Success -> {
-//                        articleAdapter.submitList(state.data)
-//                        progressbar.isVisible = false
-//                    }
-//                    is ViewState.Loading -> progressbar.isVisible = true
-//                    is ViewState.Error -> {
-//                        progressbar.isVisible = false
-//                        toast("Something went wrong…")
-//                    }
-//                }
-//            }
         }
+    }
+
+    private fun initView() {
+        initAdapter()
     }
 
     private fun initAdapter() {
         articleList.apply {
-            adapter = articleAdapter
+
+            adapter = with(articleAdapter) {
+                addLoadStateListener { loadState ->
+                    // Only show the list when refresh succeeds
+                    articleList.isVisible = loadState.refresh is LoadState.NotLoading
+
+                    progressbar.isVisible = loadState.refresh is LoadState.Loading
+                    // Show the retry state if initial load or refresh failed
+                    retry_button.isVisible = loadState.refresh is LoadState.Error
+                }
+                articleAdapter
+            }
+
             layoutManager = LinearLayoutManager(
                 this@MainActivity, RecyclerView.VERTICAL,
                 false
