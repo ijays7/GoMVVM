@@ -56,6 +56,10 @@ class MainActivity : BaseActivity() {
 
     private fun initView() {
         initAdapter()
+
+        retry_button.setOnClickListener {
+            articleAdapter.retry()
+        }
     }
 
     private fun initAdapter() {
