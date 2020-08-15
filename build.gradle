@@ -5,13 +5,18 @@ buildscript {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        gradlePluginPortal()
 
     }
     dependencies {
         classpath "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:${Versions.ktLint}"
         classpath "com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}"
-        classpath "com.didichuxing.doraemonkit:doraemonkit-plugin:${Versions.doraemonKit}"
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.11.0-RC2"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
