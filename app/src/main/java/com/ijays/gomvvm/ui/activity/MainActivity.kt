@@ -12,6 +12,7 @@ import com.ijays.gomvvm.R
 import com.ijays.gomvvm.base.BaseActivity
 import com.ijays.gomvvm.model.base.ViewState
 import com.ijays.gomvvm.ui.adapter.ArticleListAdapter
+import com.ijays.gomvvm.ui.adapter.ArticleLoadStateAdapter
 import com.ijays.gomvvm.ui.viewmodel.ArticleListViewModel
 import com.ijays.gomvvm.utils.observeNotNull
 import kotlinx.android.synthetic.main.activity_main.*
@@ -64,17 +65,19 @@ class MainActivity : BaseActivity() {
 
     private fun initAdapter() {
         articleList.apply {
+            adapter = articleAdapter.withLoadStateHeaderAndFooter(header = ArticleLoadStateAdapter {
+                articleAdapter.retry()
+            }, footer = ArticleLoadStateAdapter {
+                articleAdapter.retry()
+            })
 
-            adapter = with(articleAdapter) {
-                addLoadStateListener { loadState ->
-                    // Only show the list when refresh succeeds
-                    articleList.isVisible = loadState.refresh is LoadState.NotLoading
+            articleAdapter.addLoadStateListener { loadState ->
+                // Only show the list when refresh succeeds
+                articleList.isVisible = loadState.refresh is LoadState.NotLoading
 
-                    progressbar.isVisible = loadState.refresh is LoadState.Loading
-                    // Show the retry state if initial load or refresh failed
-                    retry_button.isVisible = loadState.refresh is LoadState.Error
-                }
-                articleAdapter
+                progressbar.isVisible = loadState.refresh is LoadState.Loading
+                // Show the retry state if initial load or refresh failed
+                retry_button.isVisible = loadState.refresh is LoadState.Error
             }
 
             layoutManager = LinearLayoutManager(

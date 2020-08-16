@@ -40,7 +40,7 @@ object Versions {
  * Android libs we import
  */
 object Androidx {
-    //    const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
+    const val androidKtx = "androidx.core:core-ktx:${Versions.ktx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
