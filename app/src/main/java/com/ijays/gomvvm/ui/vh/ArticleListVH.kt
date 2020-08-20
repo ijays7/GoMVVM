@@ -1,5 +1,6 @@
 package com.ijays.gomvvm.ui.vh
 
+import android.app.Activity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.gomvvm.R
 import com.ijays.gomvvm.model.ArticleModel
+import com.ijays.gomvvm.ui.activity.BrowserActivity
+import com.ijays.gomvvm.utils.start
 import kotlinx.android.synthetic.main.item_article_list_layout.view.*
 
 /**
@@ -39,6 +42,9 @@ class ArticleListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 itemView.tvDesc.isVisible = true
             }
 
+            itemView.setOnClickListener { v ->
+                BrowserActivity.startActivity(v.context, it.link)
+            }
         }
     }
 
