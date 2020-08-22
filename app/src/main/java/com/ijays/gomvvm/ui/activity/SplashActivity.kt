@@ -1,10 +1,10 @@
 package com.ijays.gomvvm.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import com.ijays.gomvvm.R
+import com.ijays.gomvvm.utils.startActivityWithFadeIn
 import kotlinx.android.synthetic.main.activity_splash_layout.*
 
 /**
@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
             }
 
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
-                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                startActivityWithFadeIn<MainActivity>(this@SplashActivity)
                 finish()
             }
         })

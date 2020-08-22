@@ -65,11 +65,12 @@ class MainActivity : BaseActivity() {
 
     private fun initAdapter() {
         articleList.apply {
-            adapter = articleAdapter.withLoadStateHeaderAndFooter(header = ArticleLoadStateAdapter {
-                articleAdapter.retry()
-            }, footer = ArticleLoadStateAdapter {
-                articleAdapter.retry()
-            })
+            adapter =
+                articleAdapter.withLoadStateHeaderAndFooter(header = ArticleLoadStateAdapter {
+                    articleAdapter.retry()
+                }, footer = ArticleLoadStateAdapter {
+                    articleAdapter.retry()
+                })
 
             articleAdapter.addLoadStateListener { loadState ->
                 // Only show the list when refresh succeeds

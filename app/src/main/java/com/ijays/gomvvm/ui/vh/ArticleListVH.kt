@@ -1,16 +1,17 @@
 package com.ijays.gomvvm.ui.vh
 
-import android.app.Activity
-import android.util.Log
+import android.os.Build
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.gomvvm.R
 import com.ijays.gomvvm.model.ArticleModel
+import com.ijays.gomvvm.model.BrowserLoadOptionModel
 import com.ijays.gomvvm.ui.activity.BrowserActivity
-import com.ijays.gomvvm.utils.start
 import kotlinx.android.synthetic.main.item_article_list_layout.view.*
 
 /**
@@ -25,7 +26,7 @@ class ArticleListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
      */
     fun bind(articleModel: ArticleModel) {
         articleModel.let {
-            itemView.tvTitle.text = it.title
+            showContent(itemView.tvTitle, it.title)
             itemView.tvChannel.text = "${it.superChapterName}·${it.chapterName}"
             itemView.tvName.text = if (it.author.isNullOrEmpty()) it.shareUser else it.author
             itemView.tvTime.text = it.niceDate
@@ -38,13 +39,24 @@ class ArticleListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 itemView.tvDesc.isVisible = false
             } else {
                 itemView.tvTitle.maxLines = 1
-                itemView.tvDesc.text = it.desc
                 itemView.tvDesc.isVisible = true
+                showContent(itemView.tvDesc, it.desc)
             }
 
             itemView.setOnClickListener { v ->
-                BrowserActivity.startActivity(v.context, it.link)
+                BrowserActivity.startActivity(
+                    v.context,
+                    BrowserLoadOptionModel(it.link, itemView.tvTitle.text.toString())
+                )
             }
+        }
+    }
+
+    private fun showContent(textView: TextView, content: String) {
+        textView.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(content, Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            Html.fromHtml(content)
         }
     }
 

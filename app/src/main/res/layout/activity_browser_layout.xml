@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fadingEdge="none"
+        android:theme="@style/toolbar_theme"
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar

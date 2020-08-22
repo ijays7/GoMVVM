@@ -4,12 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import com.ijays.gomvvm.R
 import com.ijays.gomvvm.base.BaseActivity
+import com.ijays.gomvvm.common.EXTRA_DATA
+import com.ijays.gomvvm.model.BrowserLoadOptionModel
 import kotlinx.android.synthetic.main.activity_browser_layout.*
 
 /**
@@ -20,11 +23,18 @@ class BrowserActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_browser_layout)
-        val requestUrl = intent.getStringExtra(EXTRA_URL)
+        val optionModel =
+            intent.getParcelableExtra<BrowserLoadOptionModel>(EXTRA_DATA) ?: return
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setDisplayShowTitleEnabled(true)
+            it.title = optionModel.title
+        }
 
         setupWebView()
-        webView.loadUrl(requestUrl)
-
+        webView.loadUrl(optionModel.link)
     }
 
 
@@ -60,6 +70,13 @@ class BrowserActivity : BaseActivity() {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -72,10 +89,14 @@ class BrowserActivity : BaseActivity() {
     }
 
     companion object {
-        const val EXTRA_URL = "extra_url"
+
         fun startActivity(context: Context, url: String) {
+            startActivity(context, BrowserLoadOptionModel(url))
+        }
+
+        fun startActivity(context: Context, model: BrowserLoadOptionModel) {
             val intent = Intent(context, BrowserActivity::class.java)
-            intent.putExtra(EXTRA_URL, url)
+            intent.putExtra(EXTRA_DATA, model)
             context.startActivity(intent)
         }
     }
