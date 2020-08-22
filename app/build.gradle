@@ -52,8 +52,8 @@ kapt {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -64,6 +64,7 @@ dependencies {
     implementation Androidx.liveDataKtx
     implementation Androidx.lifecycleExtension
     implementation Androidx.constraintLayout
+    implementation Androidx.material
 
 
     implementation Libraries.coroutines

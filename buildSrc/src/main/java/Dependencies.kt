@@ -12,6 +12,7 @@ object Versions {
     const val androidGradlePlugin = "4.0.1"
     const val kotlin = "1.3.72"
     const val ktLint = "9.3.0"
+
     const val coroutines = "1.3.5"
 
     const val koin = "2.1.5"
@@ -24,6 +25,7 @@ object Versions {
     const val liveDataKtx = "2.2.0"
     const val appCompat = "1.2.0-alpha01"
     const val constraintLayout = "2.0.0-rc1"
+    const val googleMaterial = "1.2.0"
 
     const val room = "2.2.3"
 
@@ -32,8 +34,6 @@ object Versions {
     const val paging3Version = "3.0.0-alpha04"
     const val hilt = "2.28.3-alpha"
     const val hiltViewModelVersion = "1.0.0-alpha02"
-
-    const val doraemonKit = "3.1.2"
 }
 
 /**
@@ -50,6 +50,8 @@ object Androidx {
 
     const val roomRuntime = "androidx.room:room-runtime:${Versions.room}"
     const val roomAnnotationProcessor = "androidx.room:room-compiler:${Versions.room}"
+
+    const val material = "com.google.android.material:material:${Versions.googleMaterial}"
 
     // optional - Kotlin Extensions and Coroutines support for Room
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
