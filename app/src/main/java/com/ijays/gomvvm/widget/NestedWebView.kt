@@ -37,7 +37,7 @@ class NestedWebView @JvmOverloads constructor(
 
         val trackedEvent = MotionEvent.obtain(event)
 
-        val action = MotionEventCompat.getActionMasked(event)
+        val action = event?.actionMasked
         if (action == MotionEvent.ACTION_DOWN) {
             nestedYOffset = 0
         }
