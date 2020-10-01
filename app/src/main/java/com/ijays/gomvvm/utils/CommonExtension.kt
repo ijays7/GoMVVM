@@ -22,6 +22,14 @@ inline fun <reified T : AppCompatActivity> AppCompatActivity.startActivityWithFa
     ).toBundle()
 
     val intent = Intent(context, T::class.java)
-    startActivity(intent,bundle)
-
+    startActivity(intent, bundle)
 }
+
+fun Any?.isNull() = this == null
+
+fun Any?.isNotNull() = this != null
+
+/**
+ * 用于非空的时候执行
+ */
+inline fun <T, R> T?.runIfNotNull(block: T.() -> R): R? = this?.block()
