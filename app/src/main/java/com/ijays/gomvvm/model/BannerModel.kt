@@ -1,5 +1,7 @@
 package com.ijays.gomvvm.model
 
+import kotlinx.serialization.Serializable
+
 /**
  * Created by ijays on 2020/4/15.
  */
@@ -12,6 +14,7 @@ package com.ijays.gomvvm.model
 //"type": 0,
 //"url": "https://mp.weixin.qq.com/s/TcF4w0Bz-k5dZdPKq3HIGA"
 
+@Serializable
 data class BannerModel(
     val id: Int,
     val desc: String,

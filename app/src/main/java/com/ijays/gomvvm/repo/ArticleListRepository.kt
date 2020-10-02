@@ -42,23 +42,6 @@ class DefaultArticleListRepository @Inject constructor(
     private val apiManager: ApiManager
 ) : IArticleListRepository {
     override fun getArticleList(): Flow<PagingData<ArticleModel>> {
-//        return flow {
-//            val articleResponse = apiManager.service.getArticleList(0)
-//            val topArticleList = apiManager.service.getTopArticle()
-//
-//            val resultList = topArticleList.data.toMutableList()
-//            resultList.addAll(articleResponse.data.datas)
-//
-//            // Save articles to database
-//            articleDao.insertArticles(resultList)
-//
-//            //
-//            emit(ViewState.success(resultList.toList()))
-//
-//        }.catch {
-//            emit(ViewState.error(GeneralErrorHandlerImpl().getError(throwable = it)))
-//        }.flowOn(Dispatchers.IO)
-
         return Pager(
             config = PagingConfig(
                 pageSize = ARTICLE_LIST_PAGE_SIZE,
@@ -67,7 +50,6 @@ class DefaultArticleListRepository @Inject constructor(
                 ArticlePagingSource(apiManager)
             }
         ).flow
-
     }
 
     override fun getBannerList(): Flow<ViewState<WanResponse<List<BannerModel>>>> {

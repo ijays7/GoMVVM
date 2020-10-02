@@ -2,16 +2,17 @@ package com.ijays.gomvvm.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.io.Serializable
+import kotlinx.serialization.Serializable
 
 /**
  * Created by ijays on 2020/4/5.
  */
 @Entity(tableName = "t_article_detail")
+@Serializable
 data class ArticleModel(
     @PrimaryKey
     val id: Int,
-    val originId: Int,
+    val originId: Int? = null,
     val title: String,
     val chapterId: Int,
     val chapterName: String,
@@ -40,4 +41,4 @@ data class ArticleModel(
     val shareUser: String,
 //    val tags: Any,
     val userId: Int
-) : Serializable
+)

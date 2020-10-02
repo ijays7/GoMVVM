@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "14ee7e69d15894a8af0b2bd51237934d",
+    "identityHash": "dcb7de3657c7015af316ea0ae7da31d9",
     "entities": [
       {
         "tableName": "t_article_detail",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originId` INTEGER NOT NULL, `title` TEXT NOT NULL, `chapterId` INTEGER NOT NULL, `chapterName` TEXT NOT NULL, `envelopePic` TEXT NOT NULL, `link` TEXT NOT NULL, `author` TEXT, `origin` TEXT NOT NULL, `publishTime` INTEGER NOT NULL, `zan` INTEGER NOT NULL, `desc` TEXT, `visible` INTEGER NOT NULL, `niceDate` TEXT NOT NULL, `niceShareDate` TEXT NOT NULL, `courseId` INTEGER NOT NULL, `collect` INTEGER NOT NULL, `apkLink` TEXT NOT NULL, `projectLink` TEXT NOT NULL, `superChapterId` INTEGER NOT NULL, `superChapterName` TEXT, `type` INTEGER NOT NULL, `fresh` INTEGER NOT NULL, `audit` INTEGER NOT NULL, `prefix` TEXT NOT NULL, `selfVisible` INTEGER NOT NULL, `shareDate` INTEGER NOT NULL, `shareUser` TEXT NOT NULL, `userId` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `originId` INTEGER, `title` TEXT NOT NULL, `chapterId` INTEGER NOT NULL, `chapterName` TEXT NOT NULL, `envelopePic` TEXT NOT NULL, `link` TEXT NOT NULL, `author` TEXT, `origin` TEXT NOT NULL, `publishTime` INTEGER NOT NULL, `zan` INTEGER NOT NULL, `desc` TEXT, `visible` INTEGER NOT NULL, `niceDate` TEXT NOT NULL, `niceShareDate` TEXT NOT NULL, `courseId` INTEGER NOT NULL, `collect` INTEGER NOT NULL, `apkLink` TEXT NOT NULL, `projectLink` TEXT NOT NULL, `superChapterId` INTEGER NOT NULL, `superChapterName` TEXT, `type` INTEGER NOT NULL, `fresh` INTEGER NOT NULL, `audit` INTEGER NOT NULL, `prefix` TEXT NOT NULL, `selfVisible` INTEGER NOT NULL, `shareDate` INTEGER NOT NULL, `shareUser` TEXT NOT NULL, `userId` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -18,7 +18,7 @@
             "fieldPath": "originId",
             "columnName": "originId",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "title",
@@ -196,7 +196,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14ee7e69d15894a8af0b2bd51237934d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dcb7de3657c7015af316ea0ae7da31d9')"
     ]
   }
 }

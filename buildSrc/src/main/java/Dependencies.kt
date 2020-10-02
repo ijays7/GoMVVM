@@ -10,7 +10,7 @@ object ApplicationId {
  */
 object Versions {
     const val androidGradlePlugin = "4.0.1"
-    const val kotlin = "1.3.72"
+    const val kotlin = "1.4.10"
     const val ktLint = "9.3.0"
 
     const val coroutines = "1.3.5"
@@ -82,7 +82,8 @@ object Libraries {
     const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
-    const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val kotlinxSerializationConverter =
+        "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.7.0"
     const val loggineInterceptor = "com.squareup.okhttp3:logging-interceptor:4.0.0"
 
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"

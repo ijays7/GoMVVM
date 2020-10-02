@@ -10,4 +10,4 @@ import kotlinx.android.parcel.Parcelize
 data class BrowserLoadOptionModel(
     var link: String,
     var title: String? = null
-):Parcelable
+) : Parcelable
