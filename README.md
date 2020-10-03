@@ -10,8 +10,9 @@ GoMVVM is a simple app which uses [WanAndroid](https://www.wanandroid.com/blog/s
 - [Kotlin](https://www.kotlincn.net/) of course
 - [Coroutine and Coroutine Flow](https://www.kotlincn.net/docs/tutorials/coroutines/coroutines-basic-jvm.html)
 - [Android Architecture Component](https://developer.android.com/jetpack)
-- [Koin](https://github.com/InsertKoinIO/koin) for Dependency Intejection
+- [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for Dependency Intejection
 - [Retrofit](https://github.com/square/retrofit) for HTTP Client
+- [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization) for serialization
 - The [epoxy branch](https://github.com/ijays7/GoMVVM/tree/epoxy) trying to use [epoxy](https://github.com/airbnb/epoxy) to display complex screens  in a recyclerView
 
 ## Architecture
