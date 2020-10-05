@@ -1,13 +1,13 @@
-package com.ijays.gomvvm.model.base
+package com.ijays.core.base.state
 
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.HttpURLConnection
 
 /**
- * Created by ijays on 2020/4/8.
+ * Created by ijays on 2020/10/5.
  */
-class GeneralErrorHandlerImpl : ErrorHandler {
+class GeneralErrorHandlerImpl :ErrorHandler{
 
     override fun getError(throwable: Throwable): ErrorEntity {
         return when (throwable) {
@@ -25,6 +25,5 @@ class GeneralErrorHandlerImpl : ErrorHandler {
             }
             else -> ErrorEntity.Unknown
         }
-
     }
 }

@@ -9,15 +9,15 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.10'
 }
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    compileSdkVersion Config.compileSDK
+    buildToolsVersion Config.buildTools
 
     defaultConfig {
         applicationId ApplicationId.id
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Config.minSDK
+        targetSdkVersion Config.targetSDK
+        versionCode Config.versionCode
+        versionName Config.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -54,14 +54,13 @@ kapt {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+    implementation project(path: ':core')
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation Androidx.appCompat
     implementation Androidx.androidKtx
-    implementation Androidx.activityKtx
     implementation Androidx.liveDataKtx
     implementation Androidx.lifecycleExtension
     implementation Androidx.constraintLayout
@@ -70,10 +69,6 @@ dependencies {
 
     implementation Libraries.coroutines
     implementation Libraries.coroutineAndroid
-
-    implementation Libraries.retrofit
-    implementation Libraries.kotlinxSerializationConverter
-    implementation Libraries.loggineInterceptor
 
     // paging3
     implementation Androidx.paging3

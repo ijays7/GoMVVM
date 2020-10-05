@@ -15,9 +15,6 @@ object Versions {
 
     const val coroutines = "1.3.5"
 
-    const val koin = "2.1.5"
-    const val koinFragment = "2.1.0-alpha-8"
-
     const val retrofit = "2.8.1"
 
     const val ktx = "1.2.0"
@@ -77,9 +74,6 @@ object Libraries {
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutineAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-
-    const val koinFragment = "org.koin:koin-androidx-fragment:${Versions.koinFragment}"
-    const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
 
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val kotlinxSerializationConverter =

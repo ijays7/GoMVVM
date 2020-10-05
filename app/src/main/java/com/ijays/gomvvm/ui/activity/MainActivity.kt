@@ -8,13 +8,13 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ijays.core.base.activity.BaseActivity
+import com.ijays.core.base.state.ViewState
+import com.ijays.core.ext.observeNotNull
 import com.ijays.gomvvm.R
-import com.ijays.gomvvm.base.BaseActivity
-import com.ijays.gomvvm.model.base.ViewState
 import com.ijays.gomvvm.ui.adapter.ArticleListAdapter
 import com.ijays.gomvvm.ui.adapter.ArticleLoadStateAdapter
 import com.ijays.gomvvm.ui.viewmodel.ArticleListViewModel
-import com.ijays.gomvvm.utils.observeNotNull
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect

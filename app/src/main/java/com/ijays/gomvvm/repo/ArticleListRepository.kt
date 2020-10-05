@@ -3,12 +3,12 @@ package com.ijays.gomvvm.repo
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.ijays.core.base.state.GeneralErrorHandlerImpl
+import com.ijays.core.base.state.ViewState
 import com.ijays.gomvvm.db.ArticleDao
 import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.model.BannerModel
 import com.ijays.gomvvm.model.api.ApiManager
-import com.ijays.gomvvm.model.base.GeneralErrorHandlerImpl
-import com.ijays.gomvvm.model.base.ViewState
 import com.ijays.gomvvm.model.base.WanResponse
 import com.ijays.gomvvm.repo.data.ArticlePagingSource
 import dagger.Binds

@@ -1,8 +1,7 @@
-package com.ijays.gomvvm.model.base
+package com.ijays.core.base.state
 
 /**
- * Define errors
- * Created by ijays on 2020/4/8.
+ * Created by ijays on 2020/10/5.
  */
 sealed class ErrorEntity {
     /**
@@ -29,5 +28,4 @@ sealed class ErrorEntity {
      * Unknown error
      */
     object Unknown : ErrorEntity()
-
 }
