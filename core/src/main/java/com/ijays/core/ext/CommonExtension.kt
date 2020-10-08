@@ -19,7 +19,7 @@ val Number.sp: Int get() = (toInt() * Resources.getSystem().displayMetrics.scale
 /**
  * Quickly start an Activity
  */
-inline fun <reified T : AppCompatActivity> Activity.start(context: Context) {
+inline fun <reified T : AppCompatActivity> Activity.start() {
     startActivity(Intent(this, T::class.java))
 }
 

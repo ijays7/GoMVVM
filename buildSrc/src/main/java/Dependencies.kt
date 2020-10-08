@@ -9,7 +9,7 @@ object ApplicationId {
  * Versions of libraries
  */
 object Versions {
-    const val androidGradlePlugin = "4.0.1"
+    const val androidGradlePlugin = "4.0.2"
     const val kotlin = "1.4.10"
     const val ktLint = "9.3.0"
 
@@ -24,7 +24,7 @@ object Versions {
     const val constraintLayout = "2.0.0-rc1"
     const val googleMaterial = "1.2.0"
 
-    const val room = "2.2.3"
+    const val room = "2.2.5"
 
     const val epoxy = "4.0.0-beta4"
 

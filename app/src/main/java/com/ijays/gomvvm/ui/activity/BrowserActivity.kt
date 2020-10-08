@@ -9,8 +9,8 @@ import android.view.View
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
+import com.ijays.core.base.activity.BaseActivity
 import com.ijays.gomvvm.R
-import com.ijays.gomvvm.base.BaseActivity
 import com.ijays.gomvvm.common.EXTRA_DATA
 import com.ijays.gomvvm.model.BrowserLoadOptionModel
 import kotlinx.android.synthetic.main.activity_browser_layout.*
