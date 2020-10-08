@@ -1,7 +1,7 @@
-package com.ijays.gomvvm.model.base
+package com.ijays.core.base.state
 
 /**
- * Created by ijays on 2020/4/8.
+ * Created by ijays on 2020/10/5.
  */
 interface ErrorHandler {
 
