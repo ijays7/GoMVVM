@@ -3,6 +3,7 @@ package com.ijays.gomvvm.repo
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.ijays.core.base.repo.IRepository
 import com.ijays.core.base.state.GeneralErrorHandlerImpl
 import com.ijays.core.base.state.ViewState
 import com.ijays.gomvvm.db.ArticleDao
@@ -29,7 +30,7 @@ import javax.inject.Singleton
 
 private const val ARTICLE_LIST_PAGE_SIZE = 20
 
-interface IArticleListRepository {
+interface IArticleListRepository : IRepository {
 
     fun getArticleList(): Flow<PagingData<ArticleModel>>
 
