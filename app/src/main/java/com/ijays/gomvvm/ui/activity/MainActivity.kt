@@ -41,18 +41,17 @@ class MainActivity : BaseActivity() {
 
         initData()
 
-        articleListViewModel.apply {
-            getBannerListLiveData().observeNotNull(this@MainActivity) { state ->
-                when (state) {
-                    is ViewState.Success -> {
-                        val bannerList = state.data.data
-                        bannerList.forEach {
-                            Log.e("SONGJIE", "state==>$it")
-                        }
+        articleListViewModel.getBannerListLiveData().observeNotNull(this@MainActivity) { state ->
+            when (state) {
+                is ViewState.Success -> {
+                    val bannerList = state.data.data
+                    bannerList.forEach {
+                        Log.e("SONGJIE", "state==>$it")
                     }
                 }
             }
         }
+
     }
 
     private fun initView() {
