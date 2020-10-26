@@ -9,7 +9,7 @@ object ApplicationId {
  * Versions of libraries
  */
 object Versions {
-    const val androidGradlePlugin = "4.0.2"
+    const val androidGradlePlugin = "4.1.0"
     const val kotlin = "1.4.10"
     const val ktLint = "9.3.0"
 
