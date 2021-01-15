@@ -10,36 +10,38 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import com.ijays.core.base.activity.BaseActivity
-import com.ijays.gomvvm.R
 import com.ijays.gomvvm.common.EXTRA_DATA
+import com.ijays.gomvvm.databinding.ActivityBrowserLayoutBinding
 import com.ijays.gomvvm.model.BrowserLoadOptionModel
-import kotlinx.android.synthetic.main.activity_browser_layout.*
 
 /**
  * Display web content
  */
 class BrowserActivity : BaseActivity() {
 
+    private lateinit var binding: ActivityBrowserLayoutBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_browser_layout)
+        binding = ActivityBrowserLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val optionModel =
             intent.getParcelableExtra<BrowserLoadOptionModel>(EXTRA_DATA) ?: return
 
-        setSupportActionBar(toolbar)
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.let {
             it.setDisplayHomeAsUpEnabled(true)
             it.setDisplayShowTitleEnabled(true)
-            it.title = optionModel.title
+//            it.title = optionModel.title
         }
 
         setupWebView()
-        webView.loadUrl(optionModel.link)
+        binding.webView.loadUrl(optionModel.link)
     }
 
 
     private fun setupWebView() {
-        val settings = webView.settings
+        val settings = binding.webView.settings
         settings.loadWithOverviewMode = true
         settings.useWideViewPort = true
         //允许js代码
@@ -54,16 +56,16 @@ class BrowserActivity : BaseActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
         }
-        webView.webChromeClient = object : WebChromeClient() {
+        binding.webView.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 super.onProgressChanged(view, newProgress)
 
-                progressBar.progress = newProgress
+                binding.progressBar.progress = newProgress
 
                 if (newProgress >= 90) {
-                    progressBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                 } else {
-                    progressBar.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.VISIBLE
                 }
             }
 
@@ -81,11 +83,9 @@ class BrowserActivity : BaseActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
-        if (webView != null) {
-            webView.removeAllViews()
-            webView.clearHistory()
-            webView.destroy()
-        }
+        binding.webView.removeAllViews()
+        binding.webView.clearHistory()
+        binding.webView.destroy()
     }
 
     companion object {
