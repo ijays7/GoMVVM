@@ -7,25 +7,27 @@ import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.gomvvm.R
-import kotlinx.android.synthetic.main.item_load_state_footer.view.*
+import com.ijays.gomvvm.databinding.ItemLoadStateFooterBinding
 
 /**
  * Created by ijays on 2020/8/16.
  */
 class ArticleLoadStateVH(view: View, retry: () -> Unit) : RecyclerView.ViewHolder(view) {
+    private val binding = ItemLoadStateFooterBinding.bind(view)
+
     init {
-        itemView.retry_button.setOnClickListener {
+        binding.retryButton.setOnClickListener {
             retry.invoke()
         }
     }
 
     fun bind(loadState: LoadState) {
         if (loadState is LoadState.Error) {
-            itemView.error_msg.text = loadState.error.localizedMessage
+            binding.errorMsg.text = loadState.error.localizedMessage
         }
-        itemView.progress_bar.isVisible = loadState is LoadState.Loading
-        itemView.retry_button.isVisible = loadState !is LoadState.Loading
-        itemView.error_msg.isVisible = loadState !is LoadState.Loading
+        binding.progressBar.isVisible = loadState is LoadState.Loading
+        binding.retryButton.isVisible = loadState !is LoadState.Loading
+        binding.errorMsg.isVisible = loadState !is LoadState.Loading
     }
 
     companion object {

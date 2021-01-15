@@ -3,21 +3,22 @@ package com.ijays.gomvvm.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
-import com.ijays.gomvvm.R
+import com.ijays.gomvvm.databinding.ActivitySplashLayoutBinding
 import com.ijays.gomvvm.utils.startActivityWithFadeIn
-import kotlinx.android.synthetic.main.activity_splash_layout.*
 
 /**
  * Splash page
  * Created by ijays on 2020/6/18.
  */
 class SplashActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySplashLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_layout)
+        binding = ActivitySplashLayoutBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
+        binding.motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
             }
 
@@ -36,6 +37,6 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        motionLayout.startLayoutAnimation()
+        binding.motionLayout.startLayoutAnimation()
     }
 }

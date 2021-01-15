@@ -9,10 +9,10 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.gomvvm.R
+import com.ijays.gomvvm.databinding.ItemArticleListLayoutBinding
 import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.model.BrowserLoadOptionModel
 import com.ijays.gomvvm.ui.activity.BrowserActivity
-import kotlinx.android.synthetic.main.item_article_list_layout.view.*
 
 /**
  * Created by ijays on 2020/8/7.
@@ -21,32 +21,34 @@ import kotlinx.android.synthetic.main.item_article_list_layout.view.*
  * viewHolder of article list
  */
 class ArticleListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private val binding = ItemArticleListLayoutBinding.bind(itemView)
+
     /**
      * bind view
      */
     fun bind(articleModel: ArticleModel) {
         articleModel.let {
-            showContent(itemView.tvTitle, it.title)
-            itemView.tvChannel.text = "${it.superChapterName}·${it.chapterName}"
-            itemView.tvName.text = if (it.author.isNullOrEmpty()) it.shareUser else it.author
-            itemView.tvTime.text = it.niceDate
+            showContent(binding.tvTitle, it.title)
+            binding.tvChannel.text = "${it.superChapterName}·${it.chapterName}"
+            binding.tvName.text = if (it.author.isNullOrEmpty()) it.shareUser else it.author
+            binding.tvTime.text = it.niceDate
             // 是否是置顶
-            itemView.tvTop.isVisible = it.type == 1
+            binding.tvTop.isVisible = it.type == 1
 
             if (it.desc.isNullOrEmpty()) {
                 // do not have describe info，constrain the max title line to 3
-                itemView.tvTitle.maxLines = 3
-                itemView.tvDesc.isVisible = false
+                binding.tvTitle.maxLines = 3
+                binding.tvDesc.isVisible = false
             } else {
-                itemView.tvTitle.maxLines = 1
-                itemView.tvDesc.isVisible = true
-                showContent(itemView.tvDesc, it.desc)
+                binding.tvTitle.maxLines = 1
+                binding.tvDesc.isVisible = true
+                showContent(binding.tvDesc, it.desc)
             }
 
-            itemView.setOnClickListener { v ->
+            binding.root.setOnClickListener { v ->
                 BrowserActivity.startActivity(
                     v.context,
-                    BrowserLoadOptionModel(it.link, itemView.tvTitle.text.toString())
+                    BrowserLoadOptionModel(it.link, binding.tvTitle.text.toString())
                 )
             }
         }

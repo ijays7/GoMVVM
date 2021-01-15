@@ -11,11 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ijays.core.base.activity.BaseActivity
 import com.ijays.core.base.state.ViewState
 import com.ijays.core.ext.observeNotNull
-import com.ijays.gomvvm.R
+import com.ijays.gomvvm.databinding.ActivityMainBinding
 import com.ijays.gomvvm.ui.adapter.ArticleListAdapter
 import com.ijays.gomvvm.ui.adapter.ArticleLoadStateAdapter
 import com.ijays.gomvvm.ui.viewmodel.ArticleListViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -27,6 +26,8 @@ class MainActivity : BaseActivity() {
 
     private val articleListViewModel: ArticleListViewModel by viewModels()
 
+    private lateinit var binding: ActivityMainBinding
+
     private val articleAdapter by lazy {
         ArticleListAdapter()
     }
@@ -35,7 +36,8 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         initView()
 
@@ -57,13 +59,13 @@ class MainActivity : BaseActivity() {
     private fun initView() {
         initAdapter()
 
-        retry_button.setOnClickListener {
+        binding.retryButton.setOnClickListener {
             articleAdapter.retry()
         }
     }
 
     private fun initAdapter() {
-        articleList.apply {
+        binding.articleList.apply {
             adapter =
                 articleAdapter.withLoadStateHeaderAndFooter(header = ArticleLoadStateAdapter {
                     articleAdapter.retry()
@@ -73,11 +75,11 @@ class MainActivity : BaseActivity() {
 
             articleAdapter.addLoadStateListener { loadState ->
                 // Only show the list when refresh succeeds
-                articleList.isVisible = loadState.refresh is LoadState.NotLoading
+                binding.articleList.isVisible = loadState.refresh is LoadState.NotLoading
 
-                progressbar.isVisible = loadState.refresh is LoadState.Loading
+                binding.progressbar.isVisible = loadState.refresh is LoadState.Loading
                 // Show the retry state if initial load or refresh failed
-                retry_button.isVisible = loadState.refresh is LoadState.Error
+                binding.retryButton.isVisible = loadState.refresh is LoadState.Error
             }
 
             layoutManager = LinearLayoutManager(
