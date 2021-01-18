@@ -3,6 +3,7 @@ package com.ijays.gomvvm.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
+import com.ijays.core.delegate.viewBinding
 import com.ijays.gomvvm.databinding.ActivitySplashLayoutBinding
 import com.ijays.gomvvm.utils.startActivityWithFadeIn
 
@@ -11,11 +12,10 @@ import com.ijays.gomvvm.utils.startActivityWithFadeIn
  * Created by ijays on 2020/6/18.
  */
 class SplashActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySplashLayoutBinding
+    private val binding by viewBinding(ActivitySplashLayoutBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySplashLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.motionLayout.setTransitionListener(object : MotionLayout.TransitionListener {

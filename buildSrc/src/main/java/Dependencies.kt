@@ -42,7 +42,9 @@ object Androidx {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
-    const val lifecycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtension}"
+    const val lifecycleCommon = "androidx.lifecycle:lifecycle-common-java8:${Versions.liveDataKtx}"
+    const val lifecycleExtension =
+        "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtension}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 

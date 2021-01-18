@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.core.base.activity.BaseActivity
 import com.ijays.core.base.state.ViewState
+import com.ijays.core.delegate.viewBinding
 import com.ijays.core.ext.observeNotNull
 import com.ijays.gomvvm.databinding.ActivityMainBinding
 import com.ijays.gomvvm.ui.adapter.ArticleListAdapter
@@ -26,7 +27,7 @@ class MainActivity : BaseActivity() {
 
     private val articleListViewModel: ArticleListViewModel by viewModels()
 
-    private lateinit var binding: ActivityMainBinding
+    private val binding by viewBinding(ActivityMainBinding::inflate)
 
     private val articleAdapter by lazy {
         ArticleListAdapter()
@@ -36,7 +37,6 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initView()
