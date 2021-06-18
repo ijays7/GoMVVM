@@ -1,6 +1,5 @@
 package com.ijays.gomvvm.ui.viewmodel
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import androidx.paging.PagingData
@@ -10,13 +9,17 @@ import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.model.BannerModel
 import com.ijays.gomvvm.model.base.WanResponse
 import com.ijays.gomvvm.repo.IArticleListRepository
+import dagger.assisted.Assisted
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 /**
  * ViewModel for article List
  * Created by ijays on 2020/4/4.
  */
-class ArticleListViewModel @ViewModelInject constructor(private val articleListRepository: IArticleListRepository) :
+@HiltViewModel
+class ArticleListViewModel @Inject constructor(private val articleListRepository: IArticleListRepository) :
     BaseViewModel() {
 
     private val bannerListLD: LiveData<ViewState<WanResponse<List<BannerModel>>>> =
