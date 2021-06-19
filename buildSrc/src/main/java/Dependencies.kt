@@ -9,29 +9,29 @@ object ApplicationId {
  * Versions of libraries
  */
 object Versions {
-    const val androidGradlePlugin = "4.1.1"
-    const val kotlin = "1.4.20"
+    const val androidGradlePlugin = "4.2.1"
+    const val kotlin = "1.5.10"
     const val ktLint = "9.3.0"
 
-    const val coroutines = "1.3.5"
+    const val coroutines = "1.5.0"
 
-    const val retrofit = "2.8.1"
+    const val retrofit = "2.9.0"
 
-    const val ktx = "1.2.0"
-    const val activityKtx = "1.2.0-rc01"
-    const val liveDataKtx = "2.3.0-rc01"
+    const val ktx = "1.5.0"
+    const val activityKtx = "1.2.3"
+    const val liveDataKtx = "2.3.1"
     const val lifecycleExtension = "2.2.0"
-    const val appCompat = "1.3.0-beta01"
+    const val appCompat = "1.3.0"
     const val constraintLayout = "2.0.4"
-    const val googleMaterial = "1.2.1"
+    const val googleMaterial = "1.3.0"
 
-    const val room = "2.2.6"
+    const val room = "2.3.0"
 
     const val epoxy = "4.0.0-beta4"
 
     const val paging3Version = "3.0.0-alpha12"
-    const val hilt = "2.28.3-alpha"
-    const val hiltViewModelVersion = "1.0.0-alpha02"
+    const val hilt = "2.37"
+    const val hiltViewModelVersion = "1.0.0-alpha03"
 }
 
 /**

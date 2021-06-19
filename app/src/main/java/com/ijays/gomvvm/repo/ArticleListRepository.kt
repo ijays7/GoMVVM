@@ -14,8 +14,12 @@ import com.ijays.gomvvm.model.base.WanResponse
 import com.ijays.gomvvm.repo.data.ArticlePagingSource
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -37,7 +41,7 @@ interface IArticleListRepository : IRepository {
     fun getBannerList(): Flow<ViewState<WanResponse<List<BannerModel>>>>
 }
 
-@Singleton
+@ViewModelScoped
 class DefaultArticleListRepository @Inject constructor(
     private val articleDao: ArticleDao,
     private val apiManager: ApiManager
@@ -64,7 +68,7 @@ class DefaultArticleListRepository @Inject constructor(
 }
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(ViewModelComponent::class)
 interface ArticleListRepositoryModule {
 
     @Binds

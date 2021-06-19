@@ -48,7 +48,7 @@ class MainActivity : BaseActivity() {
                 is ViewState.Success -> {
                     val bannerList = state.data.data
                     bannerList.forEach {
-                        Log.e("SONGJIE", "state==>$it")
+                        Log.e("TAG", "state==>$it")
                     }
                 }
             }
