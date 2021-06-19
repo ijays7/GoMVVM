@@ -15,7 +15,7 @@ object Versions {
 
     const val coroutines = "1.5.0"
 
-    const val retrofit = "2.8.1"
+    const val retrofit = "2.9.0"
 
     const val ktx = "1.5.0"
     const val activityKtx = "1.2.3"
@@ -23,7 +23,7 @@ object Versions {
     const val lifecycleExtension = "2.2.0"
     const val appCompat = "1.3.0"
     const val constraintLayout = "2.0.4"
-    const val googleMaterial = "1.2.1"
+    const val googleMaterial = "1.3.0"
 
     const val room = "2.3.0"
 
