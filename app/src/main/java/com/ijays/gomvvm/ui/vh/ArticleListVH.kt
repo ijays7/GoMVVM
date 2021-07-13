@@ -1,5 +1,8 @@
 package com.ijays.gomvvm.ui.vh
 
+import android.app.Activity
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Build
 import android.text.Html
 import android.view.LayoutInflater
@@ -9,6 +12,7 @@ import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.ijays.gomvvm.R
+import com.ijays.gomvvm.common.EXTRA_DATA
 import com.ijays.gomvvm.databinding.ItemArticleListLayoutBinding
 import com.ijays.gomvvm.model.ArticleModel
 import com.ijays.gomvvm.model.BrowserLoadOptionModel
@@ -46,10 +50,23 @@ class ArticleListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
             }
 
             binding.root.setOnClickListener { v ->
-                BrowserActivity.startActivity(
-                    v.context,
-                    BrowserLoadOptionModel(it.link, binding.tvTitle.text.toString())
+                val context = v.context
+                if (context !is Activity) return@setOnClickListener
+
+                val intent = Intent(context, BrowserActivity::class.java).also { temp ->
+                    temp.putExtra(
+                        EXTRA_DATA,
+                        BrowserLoadOptionModel(it.link, binding.tvTitle.text.toString())
+                    )
+                }
+
+                val options = ActivityOptions.makeSceneTransitionAnimation(
+                    context,
+                    v,
+                    "shared_element_container"
                 )
+
+                context.startActivity(intent, options.toBundle())
             }
         }
     }

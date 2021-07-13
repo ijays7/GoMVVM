@@ -2,12 +2,14 @@ package com.ijays.gomvvm.ui.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.ijays.core.base.activity.BaseActivity
 import com.ijays.core.base.state.ViewState
 import com.ijays.core.delegate.viewBinding
@@ -29,13 +31,21 @@ class MainActivity : BaseActivity() {
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
-    private val articleAdapter by lazy {
+    private val articleAdapter by lazy(LazyThreadSafetyMode.NONE) {
         ArticleListAdapter()
     }
 
     private var articleListJob: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Enable Activity Transitions
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        // Attach a callback used to capture the shared elements from this Activity to be used by
+        // the container transform transition
+        setExitSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+        // Keep system bars (status bar, navigation bar) persistent
+        window.sharedElementsUseOverlay = false
+
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 

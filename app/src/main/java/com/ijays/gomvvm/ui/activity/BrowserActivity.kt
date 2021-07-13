@@ -6,9 +6,12 @@ import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.view.Window
 import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
+import com.google.android.material.transition.platform.MaterialContainerTransform
+import com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback
 import com.ijays.core.base.activity.BaseActivity
 import com.ijays.gomvvm.common.EXTRA_DATA
 import com.ijays.gomvvm.databinding.ActivityBrowserLayoutBinding
@@ -22,9 +25,26 @@ class BrowserActivity : BaseActivity() {
     private lateinit var binding: ActivityBrowserLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        window.requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+        findViewById<View>(android.R.id.content).transitionName = "shared_element_container"
+        // Attach a callback used to receive the shared elements from Activity A to be used by the
+        // container transform transition
+        setEnterSharedElementCallback(MaterialContainerTransformSharedElementCallback())
+
+        // Set this Activity's enter and return transition to a MaterialContainerTransform
+        window.sharedElementEnterTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 300L
+        }
+        window.sharedElementReturnTransition = MaterialContainerTransform().apply {
+            addTarget(android.R.id.content)
+            duration = 250L
+        }
+
         super.onCreate(savedInstanceState)
         binding = ActivityBrowserLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val optionModel =
             intent.getParcelableExtra<BrowserLoadOptionModel>(EXTRA_DATA) ?: return
 
@@ -45,7 +65,7 @@ class BrowserActivity : BaseActivity() {
         settings.loadWithOverviewMode = true
         settings.useWideViewPort = true
         //允许js代码
-        settings.javaScriptEnabled = true
+        settings.javaScriptEnabled = false
         //允许SessionStorage/LocalStorage存储
         settings.domStorageEnabled = true
         //
