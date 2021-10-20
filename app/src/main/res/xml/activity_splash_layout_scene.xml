@@ -44,7 +44,7 @@
 
     </Transition>
 
-    <ConstraintSet android:id="@+id/start"></ConstraintSet>
+    <ConstraintSet android:id="@+id/start"/>
 
-    <ConstraintSet android:id="@+id/end"></ConstraintSet>
+    <ConstraintSet android:id="@+id/end"/>
 </MotionScene>

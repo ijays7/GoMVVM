@@ -10,7 +10,7 @@ object ApplicationId {
  */
 object Versions {
     const val AGP = "7.0.0"
-    const val kotlin = "1.5.20"
+    const val kotlin = "1.5.31"
     const val ktLint = "9.3.0"
 
     const val coroutines = "1.5.0"

@@ -10,7 +10,7 @@ import okhttp3.MediaType.Companion.toMediaType
 object JsonUtil {
     private val contentType = "application/json".toMediaType()
 
-    val jsonFormat = Json {
+    private val jsonFormat = Json {
         ignoreUnknownKeys = true
     }
 
