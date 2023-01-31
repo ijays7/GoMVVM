@@ -7,8 +7,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.0'
 }
 android {
-    compileSdkVersion Config.compileSDK
-    buildToolsVersion Config.buildTools
+    compileSdk Config.compileSDK
 
     defaultConfig {
         applicationId ApplicationId.id
@@ -71,8 +70,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     implementation Androidx.androidKtx
-    implementation Androidx.liveDataKtx
-    implementation Androidx.lifecycleExtension
     implementation Androidx.constraintLayout
     implementation Androidx.material
 
@@ -84,9 +81,7 @@ dependencies {
 
     // hilt DI
     implementation Androidx.hiltAndroid
-    implementation Androidx.hiltViewModel
     kapt Androidx.hiltCompiler
-    kapt Androidx.hiltViewModelCompiler
 
     // room
     implementation Androidx.roomRuntime

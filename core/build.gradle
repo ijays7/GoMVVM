@@ -5,8 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
 }
 android {
-    compileSdkVersion Config.compileSDK
-    buildToolsVersion Config.buildTools
+    compileSdk Config.compileSDK
 
     defaultConfig {
         minSdkVersion Config.minSDK
@@ -46,14 +45,10 @@ dependencies {
     implementation(Libraries.kotlin)
     api Androidx.appCompat
     api Androidx.activityKtx
-    implementation Androidx.liveDataKtx
-    implementation Androidx.lifecycleCommon
 
     // hilt DI
     api Androidx.hiltAndroid
-    api Androidx.hiltViewModel
     kapt Androidx.hiltCompiler
-    kapt Androidx.hiltViewModelCompiler
 
     // retrofit
     api Libraries.retrofit

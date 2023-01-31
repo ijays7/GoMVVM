@@ -9,20 +9,19 @@ object ApplicationId {
  * Versions of libraries
  */
 object Versions {
-    const val AGP = "7.0.0"
-    const val kotlin = "1.5.31"
+    const val AGP = "7.4.0"
+    const val kotlin = "1.7.20"
     const val ktLint = "9.3.0"
 
     const val coroutines = "1.5.0"
 
     const val retrofit = "2.9.0"
 
-    const val ktx = "1.5.0"
-    const val activityKtx = "1.2.3"
-    const val liveDataKtx = "2.3.1"
-    const val lifecycleExtension = "2.2.0"
+    const val ktx = "1.9.0"
+    const val activityKtx = "1.6.1"
+    const val lifecycleExtension = "2.5.1"
     const val appCompat = "1.3.0"
-    const val constraintLayout = "2.0.4"
+    const val constraintLayout = "2.1.4"
     const val googleMaterial = "1.3.0"
 
     const val room = "2.3.0"
@@ -30,8 +29,7 @@ object Versions {
     const val epoxy = "4.0.0-beta4"
 
     const val paging3Version = "3.0.0-alpha12"
-    const val hilt = "2.37"
-    const val hiltViewModelVersion = "1.0.0-alpha03"
+    const val hilt = "2.44.2"
 }
 
 /**
@@ -41,10 +39,6 @@ object Androidx {
     const val androidKtx = "androidx.core:core-ktx:${Versions.ktx}"
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
-    const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
-    const val lifecycleCommon = "androidx.lifecycle:lifecycle-common-java8:${Versions.liveDataKtx}"
-    const val lifecycleExtension =
-        "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtension}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
 
@@ -63,9 +57,6 @@ object Androidx {
     // hilt
     const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-    const val hiltViewModel =
-        "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hiltViewModelVersion}"
-    const val hiltViewModelCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltViewModelVersion}"
 }
 
 /**
