@@ -61,6 +61,9 @@ class MainActivity : BaseActivity() {
                         Log.e("TAG", "state==>$it")
                     }
                 }
+                else -> {
+
+                }
             }
         }
 
